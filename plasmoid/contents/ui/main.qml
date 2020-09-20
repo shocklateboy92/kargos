@@ -45,13 +45,20 @@ Item {
     }
 
     property var command: plasmoid.configuration.command
-    
+
+    property TestModel test: TestModel {
+        commandName: "test command";
+    }
+
     onCommandChanged: {
         update();
     }
 
     Component.onCompleted: {        
         timer.running = true;     
+
+        console.log(">>>> YOLO");
+        console.log(Object.keys(test));
     }
     
     function update() {
